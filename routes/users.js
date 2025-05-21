@@ -1,11 +1,11 @@
-var express = require("express");
-const { assert } = require("superstruct");
-const { SignUpDto } = require("../dtos/users.dto");
-const { db } = require("../utils/db");
+var express = require('express');
+const { assert } = require('superstruct');
+const { SignUpDto } = require('../dtos/users.dto');
+const { db } = require('../utils/db');
 
 var router = express.Router();
 
-router.get("/list", async function (req, res, next) {
+router.get('/list', async function(req, res, next) {
   const users = await db.user.findMany({
     include: {
       userPreference: true,

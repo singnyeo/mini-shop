@@ -1,6 +1,6 @@
 var express = require('express');
 const { assert } = require('superstruct');
-const { ordersDto } = require('../dtos/users.dto');
+const { CreateDto } = require('../dtos/orders.dto');
 const { db } = require('../utils/db');
 
 var router = express.Router();
@@ -10,7 +10,7 @@ router.get('/list', async function(req, res, next) {
   res.json(orders);
 });
 
-router.post('/create', async function (req, res, next) {
+router.post('/create', async function(req, res, next) {
   assert(req.body, CreateDto);
 
   const { user_id, product_id } = req.body;
