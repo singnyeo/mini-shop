@@ -15,7 +15,6 @@ app.use(requestTime);
 app.use(logger);
 app.use(express.json());
 
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
