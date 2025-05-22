@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
-var logger = require('./utils/logger')
+var logger = require('./utils/logger');
+var requestTime = require('./utils/request-time');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -9,7 +10,7 @@ var ordersRouter = require('./routes/orders');
 
 var app = express();
 
-
+app.use(requestTime);
 app.use(logger);
 app.use(express.json());
 
