@@ -11,14 +11,14 @@ erDiagram
         DateTime updatedAt
     }
     UserPreference {
-        String id PK
+        Int id PK
         Int user_id FK
         Boolean receiveEmail
         DateTime createdAt
         DateTime updatedAt
     }
     Product {
-        String id PK
+        Int id PK
         String name
         String description
         String category
@@ -28,14 +28,23 @@ erDiagram
         DateTime updatedAt
     }
     Order {
-        String id PK
+        Int id PK
         Int user_id FK
         Int product_id FK
         String status
         DateTime createdAt
         DateTime updatedAt
     }
+    Document {
+      Int id PK
+      String fileName
+      String mimeType
+      Int size
+      String url "UNIQUE"
+      DateTime createdAt
+    }
     User ||--|| UserPreference : "Setup"
     User ||--o{ Order : "Place"
-    Order }o--o{ Product : "Place" 
+    Order }o--o{ Product : "Place"
+    User ||--o{ Document : "Place"
   
