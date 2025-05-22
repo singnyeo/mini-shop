@@ -1,6 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
-var logger = require('morgan');
+var logger = require('./utils/logger')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -9,7 +9,8 @@ var ordersRouter = require('./routes/orders');
 
 var app = express();
 
-app.use(logger('dev'));
+
+app.use(logger);
 app.use(express.json());
 
 app.use('/', indexRouter);
